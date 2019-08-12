@@ -1,0 +1,22 @@
+{
+  "name": "sports-guide",
+  "version": "1.0.0",
+  "description": "Personalised sports tv guide/fixture list",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rsmsnot/Sports-Guide.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rsmsnot/Sports-Guide/issues"
+  },
+  "homepage": "https://github.com/rsmsnot/Sports-Guide#readme",
+  "dependencies": {
+    "livesoccertv-parser": "^5.3.0"
+  }
+}

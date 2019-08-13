@@ -10,23 +10,45 @@
 //   f1()
 
 
+// const rp = require('request-promise');
+
+// const $ = require('cheerio');
+
+// const url = 'https://www.livesoccertv.com/channels/sky-sports-premier-league/';
+
+// rp(url)
+//   .then(function(html){
+//     //success!
+//     let count = $(".matchrow:not('.repeatrow')", html).length;
+//     let matches = [];
+//     for (let i = 0; i < count; i++) {
+//         matches.push($(".matchrow:not('.repeatrow')", html))
+//     }
+
+//     // console.log($(".matchrow:not('.repeatrow')", html);
+//     console.log(matches)
+//     // console.log($(".matchrow:not('.repeatrow')", html).text())
+//   })
+//   .catch(function(err){
+//     //handle error
+//   });
+
+
+
 const rp = require('request-promise');
 
 const $ = require('cheerio');
 
-const url = 'https://www.livesoccertv.com/channels/sky-sports-premier-league/';
-
+const url = 'https://liveonsat.com/uk-england-premier-league.php';
 rp(url)
   .then(function(html){
-    //success!
-    let count = $(".matchrow:not('.repeatrow')", html).length;
-    let matches = [];
-    for (let i = 0; i < count; i++) {
-        matches.push($(".matchrow:not('.repeatrow')", html))
-    }
-    // console.log($(".matchrow:not('.repeatrow')", html);
+    // success!
+    console.log($(".fix_text", html).text(), '#########################', $(".fLeft_live", html).text());
     console.log(matches)
   })
   .catch(function(err){
     //handle error
   });
+
+
+

@@ -32,11 +32,3 @@ rp({url: url, headers: {
   .catch(function(err){
     console.error(err)
   });
-
-
-
-/*
-document.querySelectorAll('.fixtext')[1].querySelector('.fLeft').textContent.split("\n")
-
-
-*/

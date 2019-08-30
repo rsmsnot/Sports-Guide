@@ -18,6 +18,7 @@
   "homepage": "https://github.com/rsmsnot/Sports-Guide#readme",
   "dependencies": {
     "cheerio": "^1.0.0-rc.3",
+    "js-file-download": "^0.4.8",
     "jsonframe-cheerio": "^3.0.1",
     "livesoccertv-parser": "^5.3.0",
     "puppeteer": "^1.19.0",

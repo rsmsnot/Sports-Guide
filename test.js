@@ -1,54 +1,42 @@
-// const matches = require('livesoccertv-parser')
-
-
-// async function f1() {
-//     var x = await matches('england', 'arsenal', { timezone: 'Europe/London' })
-//     ;
-//     console.log(x); // 10
-//   }
-
-//   f1()
-
-
-// const rp = require('request-promise');
-
-// const $ = require('cheerio');
-
-// const url = 'https://www.livesoccertv.com/channels/sky-sports-premier-league/';
-
-// rp(url)
-//   .then(function(html){
-//     //success!
-//     let count = $(".matchrow:not('.repeatrow')", html).length;
-//     let matches = [];
-//     for (let i = 0; i < count; i++) {
-//         matches.push($(".matchrow:not('.repeatrow')", html))
-//     }
-
-//     // console.log($(".matchrow:not('.repeatrow')", html);
-//     console.log(matches)
-//     // console.log($(".matchrow:not('.repeatrow')", html).text())
-//   })
-//   .catch(function(err){
-//     //handle error
-//   });
-
-
 
 const rp = require('request-promise');
-
 const $ = require('cheerio');
 
-const url = 'https://liveonsat.com/uk-england-premier-league.php';
-rp(url)
+let url = 'https://liveonsat.com/uk-england-premier-league.php';
+rp({url: url, headers: {
+  'User-Agent': 'Super Cool Browser'
+}})
   .then(function(html){
-    // success!
-    console.log($(".fix_text", html).text(), '#########################', $(".fLeft_live", html).text());
-    console.log(matches)
+    // console.log($(".fix_text", html).text()); // DIFERENT RESULTS EVERY TIME BUT NEVER THE RIGHT ONES!!! WTF
+    
+    let list = [];
+    $('.blockfix', html).find('.fix_text > .fLeft').each(function (index, element) {
+      list.push($(element).text());
+    });
+    let chans = [];
+    $('.blockfix', html).find('.fLeft_live').each(function (index, element) {
+      chans.push($(element).text().trim().replace(/\s\s+/g, ' '));
+    });
+
+    let results = {};
+    
+    results = Object.assign(...list.map((k,i) => ({[k]: chans[i]})))
+
+    console.log(results);
+    // let dates = [];
+    // $('.time_head', html).each(function (index, element) {
+    //   dates.push($(element).text());
+    // });
+    // console.log(dates)
   })
   .catch(function(err){
-    //handle error
+    console.error(err)
   });
 
 
 
+/*
+document.querySelectorAll('.fixtext')[1].querySelector('.fLeft').textContent.split("\n")
+
+
+*/

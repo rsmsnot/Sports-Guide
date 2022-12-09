@@ -24,6 +24,6 @@
     "puppeteer": "^1.19.0",
     "request": "^2.88.0",
     "request-promise": "^4.2.4",
-    "table-scraper": "^0.1.0"
+    "table-scraper": "^1.0.3"
   }
 }
